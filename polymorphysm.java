@@ -1,59 +1,50 @@
-// Overloading
-class Overload
-{
-    void demo (int a)
-    {
-       System.out.println ("a: " + a);
+public class Bicycle {
+	
+ 
+    public int cadence;
+    public int gear;
+    public int speed;
+	
+
+    public Bicycle(int startCadence, int startSpeed, int startGear) {
+        gear = startGear;
+        cadence = startCadence;
+        speed = startSpeed;
     }
-    void demo (int a, int b)
-    {
-       System.out.println ("a and b: " + a + "," + b);
+	
+
+    public void setCadence(int newValue) {
+        cadence = newValue;
     }
-    double demo(double a) {
-       System.out.println("double a: " + a);
-       return a*a;
+	
+    public void setGear(int newValue) {
+        gear = newValue;
     }
-}
-class MethodOverloading
-{
-    public static void main (String args [])
-    {
-        Overload Obj = new Overload();
-        double result;
-        Obj .demo(10);
-        Obj .demo(10, 20);
-        result = Obj .demo(5.5);
-        System.out.println("O/P : " + result);
+	
+    public void applyBrake(int decrement) {
+        speed -= decrement;
     }
+	
+    public void speedUp(int increment) {
+        speed += increment;
+    }
+	
 }
 
-//Overriding
+public class MountainBike extends Bicycle {
+	
 
-public class BaseClass
-{
-    public void methodToOverride() //Base class method
-    {
-         System.out.println ("I'm the method of BaseClass");
-    }
-}
-public class DerivedClass extends BaseClass
-{
-    public void methodToOverride() //Derived Class method
-    {
-         System.out.println ("I'm the method of DerivedClass");
-    }
-}
+    public int seatHeight;
 
-public class TestMethod
-{
-     public static void main (String args []) {
-        // BaseClass reference and object
-        BaseClass obj1 = new BaseClass(); 
-        // BaseClass reference but DerivedClass object
-        BaseClass obj2 = new DerivedClass(); 
-        // Calls the method from BaseClass class
-        obj1.methodToOverride(); 
-        //Calls the method from DerivedClass class
-        obj2.methodToOverride(); 
-     }
+
+    public MountainBike(int startHeight, int startCadence, int startSpeed, int startGear) {
+        super(startCadence, startSpeed, startGear);
+        seatHeight = startHeight;
+    }	
+	
+
+    public void setHeight(int newValue) {
+        seatHeight = newValue;
+    }	
+
 }
